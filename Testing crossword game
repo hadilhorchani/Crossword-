@@ -1,0 +1,22 @@
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+public class CrosswordGameTest {
+    private CrosswordGame crosswordGame;
+
+    @BeforeEach
+    void setUp() {
+        crosswordGame = new CrosswordGame();
+    }
+
+    @Test
+    void testCorrectAnswer() {
+        assertEquals("BOOK", crosswordGame.checkAnswer("Clue 1", "BOOK"));
+    }
+
+    @Test
+    void testIncorrectAnswer() {
+        assertEquals("Incorrect. The answer is: BOOK", crosswordGame.checkAnswer("Clue 1", "WRONG"));
+    }
+}
