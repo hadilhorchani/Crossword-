@@ -12,11 +12,21 @@ public class CrosswordGameTest {
 
     @Test
     void testCorrectAnswer() {
-        assertEquals("BOOK", crosswordGame.checkAnswer("Clue 1", "BOOK"));
+        // Simulate user input
+        crosswordGame.answerField.setText("BOOK");
+        crosswordGame.submitButton.doClick();
+
+        // Verify result
+        assertEquals("Correct!", crosswordGame.getResult());
     }
 
     @Test
     void testIncorrectAnswer() {
-        assertEquals("Incorrect. The answer is: BOOK", crosswordGame.checkAnswer("Clue 1", "WRONG"));
+        // Simulate user input
+        crosswordGame.answerField.setText("WRONG");
+        crosswordGame.submitButton.doClick();
+
+        // Verify result
+        assertEquals("Incorrect. The answer is: B", crosswordGame.getResult());
     }
 }
